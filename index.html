@@ -108,36 +108,25 @@
     .copy-box{
       display:flex;
       justify-content:center;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:18px;
+      margin-top:25px;
     }
 
-    .copy-code{
+    .hero-code{
       background:#0f1621;
       border:1px solid rgba(255,255,255,0.08);
-      padding:18px 24px;
-      border-radius:18px;
-      font-size:1.1rem;
-      font-weight:700;
-      letter-spacing:2px;
-    }
-
-    .copy-btn{
-      border:none;
+      padding:20px 28px;
+      border-radius:20px;
+      font-size:1.2rem;
+      font-weight:800;
+      letter-spacing:3px;
       cursor:pointer;
-      padding:18px 24px;
-      border-radius:18px;
-      background:linear-gradient(90deg,#00c6ff,#8c52ff);
-      color:white;
-      font-weight:700;
       transition:0.25s ease;
+      user-select:none;
     }
 
-    .copy-btn:hover{
+    .hero-code:hover{
       transform:translateY(-3px);
-      box-shadow:0 12px 35px rgba(0,198,255,0.25);
+      box-shadow:0 15px 40px rgba(0,198,255,0.25);
     }
 
     .section-title{
@@ -199,6 +188,14 @@
       font-size:0.9rem;
       font-weight:700;
       white-space:nowrap;
+      cursor:pointer;
+      user-select:none;
+      transition:0.2s ease;
+    }
+
+    .code:hover{
+      transform:scale(1.05);
+      box-shadow:0 10px 25px rgba(0,198,255,0.25);
     }
 
     .btn{
@@ -250,13 +247,9 @@
         text-align:center;
       }
 
-      .copy-box{
-        flex-direction:column;
-      }
-
-      .copy-code,
-      .copy-btn{
+      .hero-code{
         width:100%;
+        text-align:center;
       }
 
     }
@@ -292,19 +285,14 @@
         <h2>€15 OFF</h2>
 
         <p style="margin-top:0;">
-          Use my personal Anycubic coupon code during checkout
-          and save instantly on your order.
+          Click the code below to instantly copy it.
         </p>
 
         <div class="copy-box">
 
-          <div class="copy-code" id="couponCode">
+          <div class="hero-code" onclick="copyCoupon(this)">
             YBTDSUWAFQ
           </div>
-
-          <button class="copy-btn" onclick="copyCode()">
-            📋 Copy Code
-          </button>
 
         </div>
 
@@ -323,17 +311,17 @@
 
         <div class="deal">
           <div class="deal-info">30€ OFF orders over 400€</div>
-          <div class="code">PRINTER30</div>
+          <div class="code" onclick="copyCoupon(this)">PRINTER30</div>
         </div>
 
         <div class="deal">
           <div class="deal-info">25€ OFF orders over 300€</div>
-          <div class="code">PRINTER25</div>
+          <div class="code" onclick="copyCoupon(this)">PRINTER25</div>
         </div>
 
         <div class="deal">
           <div class="deal-info">20€ OFF orders over 200€</div>
-          <div class="code">PRINTER20</div>
+          <div class="code" onclick="copyCoupon(this)">PRINTER20</div>
         </div>
 
         <a class="btn" href="https://anycubic.it/collections/vendita/?ref=naozzgja" target="_blank">
@@ -353,22 +341,22 @@
 
         <div class="deal">
           <div class="deal-info">15€ OFF orders over 150€</div>
-          <div class="code">PRINTER15</div>
+          <div class="code" onclick="copyCoupon(this)">PRINTER15</div>
         </div>
 
         <div class="deal">
           <div class="deal-info">10€ OFF orders over 100€</div>
-          <div class="code">PRINTER10</div>
+          <div class="code" onclick="copyCoupon(this)">PRINTER10</div>
         </div>
 
         <div class="deal">
           <div class="deal-info">5€ OFF orders over 50€</div>
-          <div class="code">PRINTER5</div>
+          <div class="code" onclick="copyCoupon(this)">PRINTER5</div>
         </div>
 
         <div class="deal">
           <div class="deal-info">3€ OFF orders over 30€</div>
-          <div class="code">PRINTER3</div>
+          <div class="code" onclick="copyCoupon(this)">PRINTER3</div>
         </div>
 
         <a class="btn" href="https://anycubic.it/collections/vendita/?ref=naozzgja" target="_blank">
@@ -391,22 +379,22 @@
 
         <div class="deal">
           <div class="deal-info">20€ OFF orders over 300€</div>
-          <div class="code">BUN20</div>
+          <div class="code" onclick="copyCoupon(this)">BUN20</div>
         </div>
 
         <div class="deal">
           <div class="deal-info">30€ OFF orders over 400€</div>
-          <div class="code">BUN30</div>
+          <div class="code" onclick="copyCoupon(this)">BUN30</div>
         </div>
 
         <div class="deal">
           <div class="deal-info">40€ OFF orders over 500€</div>
-          <div class="code">BUN40</div>
+          <div class="code" onclick="copyCoupon(this)">BUN40</div>
         </div>
 
         <div class="deal">
           <div class="deal-info">60€ OFF orders over 800€</div>
-          <div class="code">BUN60</div>
+          <div class="code" onclick="copyCoupon(this)">BUN60</div>
         </div>
 
         <a class="btn" href="https://anycubic.it/collections/combo-offers?ref=naozzgja" target="_blank">
@@ -493,17 +481,19 @@
 
   <script>
 
-    function copyCode() {
+    function copyCoupon(element) {
 
-      navigator.clipboard.writeText("YBTDSUWAFQ");
+      const text = element.innerText.trim();
 
-      const button = document.querySelector(".copy-btn");
+      navigator.clipboard.writeText(text);
 
-      button.innerHTML = "✅ Copied!";
+      const original = text;
+
+      element.innerText = "✅ COPIED";
 
       setTimeout(() => {
-        button.innerHTML = "📋 Copy Code";
-      }, 2000);
+        element.innerText = original;
+      }, 1500);
 
     }
 
