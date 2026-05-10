@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Anycubic Deals & Discount Codes</title>
+  <title>Ludwing's Anycubic Deals</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,17 +48,46 @@
       padding:80px 0 60px;
     }
 
-    .badge{
-      display:inline-flex;
+    .creator-banner{
+      display:flex;
       align-items:center;
-      gap:10px;
-      padding:12px 20px;
-      border-radius:999px;
+      justify-content:center;
+      gap:20px;
+      padding:22px 28px;
+      border-radius:32px;
       background:rgba(255,255,255,0.05);
       border:1px solid rgba(255,255,255,0.08);
-      color:#d2d9e4;
-      font-size:14px;
-      margin-bottom:30px;
+      backdrop-filter:blur(12px);
+      max-width:820px;
+      margin:0 auto 42px;
+    }
+
+    .creator-avatar{
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid rgba(255,255,255,0.14);
+      box-shadow:0 10px 35px rgba(0,198,255,0.28);
+    }
+
+    .creator-text{
+      text-align:left;
+    }
+
+    .creator-small{
+      display:block;
+      color:#93a4bc;
+      font-size:0.95rem;
+      margin-bottom:8px;
+      letter-spacing:0.5px;
+    }
+
+    .creator-text h3{
+      font-size:2rem;
+      line-height:1.1;
+      font-weight:800;
+      letter-spacing:-1.5px;
     }
 
     h1{
@@ -84,9 +113,9 @@
     }
 
     .personal-code{
-      margin-top:40px;
-      padding:30px;
-      border-radius:30px;
+      margin-top:42px;
+      padding:34px;
+      border-radius:32px;
       background:linear-gradient(135deg, rgba(0,198,255,0.18), rgba(140,82,255,0.18));
       border:1px solid rgba(255,255,255,0.1);
       backdrop-filter:blur(12px);
@@ -100,7 +129,7 @@
     }
 
     .personal-code h2{
-      font-size:clamp(2rem,5vw,3.5rem);
+      font-size:clamp(2rem,5vw,3.7rem);
       margin:18px 0;
       letter-spacing:3px;
     }
@@ -114,9 +143,9 @@
     .hero-code{
       background:#0f1621;
       border:1px solid rgba(255,255,255,0.08);
-      padding:20px 28px;
-      border-radius:20px;
-      font-size:1.2rem;
+      padding:20px 30px;
+      border-radius:22px;
+      font-size:1.25rem;
       font-weight:800;
       letter-spacing:3px;
       cursor:pointer;
@@ -129,11 +158,38 @@
       box-shadow:0 15px 40px rgba(0,198,255,0.25);
     }
 
+    .referral-btn{
+      margin-top:26px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:17px 30px;
+      border-radius:20px;
+      text-decoration:none;
+      color:white;
+      font-weight:700;
+      background:linear-gradient(90deg,#00c6ff,#8c52ff);
+      transition:0.25s ease;
+    }
+
+    .referral-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 35px rgba(0,198,255,0.25);
+    }
+
     .section-title{
-      font-size:1.8rem;
-      margin:60px 0 24px;
+      font-size:1.9rem;
+      margin:64px 0 24px;
       font-weight:700;
       letter-spacing:-1px;
+      color:white;
+    }
+
+    .section-title span{
+      color:#7e8897;
+      font-size:1rem;
+      font-weight:500;
+      margin-left:10px;
     }
 
     .grid{
@@ -145,8 +201,8 @@
     .card{
       background:rgba(255,255,255,0.04);
       border:1px solid rgba(255,255,255,0.08);
-      border-radius:28px;
-      padding:28px;
+      border-radius:30px;
+      padding:30px;
       backdrop-filter:blur(12px);
       transition:0.25s ease;
     }
@@ -157,7 +213,7 @@
     }
 
     .card h3{
-      font-size:1.3rem;
+      font-size:1.35rem;
       margin-bottom:18px;
     }
 
@@ -204,11 +260,11 @@
       align-items:center;
       justify-content:center;
       width:100%;
-      padding:16px;
-      border-radius:18px;
+      padding:17px;
+      border-radius:20px;
       text-decoration:none;
       color:white;
-      font-weight:600;
+      font-weight:700;
       background:linear-gradient(90deg,#00c6ff,#8c52ff);
       transition:0.25s ease;
     }
@@ -218,15 +274,9 @@
       box-shadow:0 12px 35px rgba(0,198,255,0.25);
     }
 
-    .time{
-      margin-top:18px;
-      color:#7e8897;
-      font-size:0.9rem;
-    }
-
     footer{
       text-align:center;
-      padding-top:70px;
+      padding-top:80px;
       color:#697383;
       font-size:0.9rem;
     }
@@ -235,6 +285,20 @@
 
       h1{
         letter-spacing:-2px;
+      }
+
+      .creator-banner{
+        flex-direction:column;
+        text-align:center;
+        padding:28px;
+      }
+
+      .creator-text{
+        text-align:center;
+      }
+
+      .creator-text h3{
+        font-size:1.45rem;
       }
 
       .deal{
@@ -252,6 +316,16 @@
         text-align:center;
       }
 
+      .section-title{
+        line-height:1.5;
+      }
+
+      .section-title span{
+        display:block;
+        margin-left:0;
+        margin-top:6px;
+      }
+
     }
 
   </style>
@@ -263,8 +337,26 @@
 
     <section class="hero">
 
-      <div class="badge">
-        🔥 Updated Anycubic Deals & Promo Codes
+      <div class="creator-banner">
+
+        <img
+          src="https://i.postimg.cc/FFW3sjLV/Logo.png"
+          alt="Ludwing"
+          class="creator-avatar"
+        >
+
+        <div class="creator-text">
+
+          <span class="creator-small">
+            Official Anycubic Partner Deals
+          </span>
+
+          <h3>
+            Ludwing's Dedicated Promo Code & Anycubic Deals
+          </h3>
+
+        </div>
+
       </div>
 
       <h1>
@@ -276,7 +368,6 @@
         Discover the latest discount codes, combo bundles,
         filament promotions and resin deals for your next 3D printing upgrade.
       </p>
-
 
       <div class="personal-code">
 
@@ -296,12 +387,19 @@
 
         </div>
 
+        <a class="referral-btn" href="https://anycubic.it/?ref=naozzgja" target="_blank">
+          🛒 Shop Anycubic
+        </a>
+
       </div>
 
     </section>
 
 
-    <h2 class="section-title">🖨️ Sitewide Coupon Codes</h2>
+    <h2 class="section-title">
+      🖨️ Sitewide Coupon Codes
+      <span>Valid: 04.29 — 05.21</span>
+    </h2>
 
     <div class="grid">
 
@@ -325,12 +423,8 @@
         </div>
 
         <a class="btn" href="https://anycubic.it/collections/vendita/?ref=naozzgja" target="_blank">
-          🚀 View Deals
+          🛒 Shop Now
         </a>
-
-        <div class="time">
-          Valid: 04.29 — 05.21
-        </div>
 
       </div>
 
@@ -360,7 +454,7 @@
         </div>
 
         <a class="btn" href="https://anycubic.it/collections/vendita/?ref=naozzgja" target="_blank">
-          💸 Shop Now
+          🛒 Shop Now
         </a>
 
       </div>
@@ -369,7 +463,10 @@
 
 
 
-    <h2 class="section-title">📦 Combo Bundle Offers</h2>
+    <h2 class="section-title">
+      📦 Combo Bundle Offers
+      <span>Valid: 04.29 — 05.09</span>
+    </h2>
 
     <div class="grid">
 
@@ -398,12 +495,8 @@
         </div>
 
         <a class="btn" href="https://anycubic.it/collections/combo-offers?ref=naozzgja" target="_blank">
-          📦 Explore Bundles
+          🛒 Shop Now
         </a>
-
-        <div class="time">
-          Valid: 04.29 — 05.09
-        </div>
 
       </div>
 
@@ -411,7 +504,10 @@
 
 
 
-    <h2 class="section-title">🎨 Filament & Resin Deals</h2>
+    <h2 class="section-title">
+      🎨 Filament & Resin Deals
+      <span>Valid: 04.29 — 05.15</span>
+    </h2>
 
     <div class="grid">
 
@@ -432,12 +528,8 @@
         </div>
 
         <a class="btn" href="https://anycubic.it/pages/filament-mix-match-deal?ref=naozzgja" target="_blank">
-          🎨 View Filament Deals
+          🛒 Shop Now
         </a>
-
-        <div class="time">
-          Valid: 04.29 — 05.15
-        </div>
 
       </div>
 
@@ -460,12 +552,8 @@
         </div>
 
         <a class="btn" href="https://anycubic.it/pages/filament-mix-match-deal?ref=naozzgja" target="_blank">
-          🧪 View Resin Deals
+          🛒 Shop Now
         </a>
-
-        <div class="time">
-          Valid: 04.29 — 05.15
-        </div>
 
       </div>
 
@@ -473,7 +561,7 @@
 
 
     <footer>
-      © 2026 • Anycubic Deals & Discount Codes
+      © 2026 • Ludwing's Anycubic Deals
     </footer>
 
   </div>
