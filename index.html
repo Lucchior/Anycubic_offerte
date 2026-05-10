@@ -45,7 +45,7 @@
 
     .hero{
       text-align:center;
-      padding:80px 0 60px;
+      padding:80px 0 40px;
     }
 
     .creator-banner{
@@ -88,20 +88,6 @@
       line-height:1.1;
       font-weight:800;
       letter-spacing:-1.5px;
-    }
-
-    h1{
-      font-size:clamp(3rem,7vw,6rem);
-      line-height:0.95;
-      font-weight:800;
-      letter-spacing:-3px;
-      margin-bottom:24px;
-    }
-
-    .gradient{
-      background:linear-gradient(90deg,#00c6ff,#8c52ff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
     }
 
     .hero p{
@@ -158,21 +144,22 @@
       box-shadow:0 15px 40px rgba(0,198,255,0.25);
     }
 
-    .referral-btn{
-      margin-top:26px;
+    .referral-main{
+      margin-top:28px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:17px 30px;
-      border-radius:20px;
+      padding:18px 34px;
+      border-radius:22px;
       text-decoration:none;
       color:white;
       font-weight:700;
+      font-size:1rem;
       background:linear-gradient(90deg,#00c6ff,#8c52ff);
       transition:0.25s ease;
     }
 
-    .referral-btn:hover{
+    .referral-main:hover{
       transform:translateY(-3px);
       box-shadow:0 12px 35px rgba(0,198,255,0.25);
     }
@@ -283,10 +270,6 @@
 
     @media(max-width:768px){
 
-      h1{
-        letter-spacing:-2px;
-      }
-
       .creator-banner{
         flex-direction:column;
         text-align:center;
@@ -359,11 +342,6 @@
 
       </div>
 
-      <h1>
-        Save More on
-        <span class="gradient">Anycubic</span>
-      </h1>
-
       <p>
         Discover the latest discount codes, combo bundles,
         filament promotions and resin deals for your next 3D printing upgrade.
@@ -387,11 +365,11 @@
 
         </div>
 
-        <a class="referral-btn" href="https://anycubic.it/?ref=naozzgja" target="_blank">
-          🛒 Shop Anycubic
-        </a>
-
       </div>
+
+      <a class="referral-main" href="https://anycubic.it/?ref=naozzgja" target="_blank">
+        🛒 Visit Anycubic Store
+      </a>
 
     </section>
 
