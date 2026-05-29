@@ -1,747 +1,797 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Ludwing's Anycubic Deals</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ludwing × Anycubic — Exclusive Deals & Coupons</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    :root {
+      --bg: #0A0A0C;
+      --s1: #111115;
+      --s2: #18181E;
+      --s3: #1E1E26;
+      --b0: rgba(255,255,255,0.06);
+      --b1: rgba(255,255,255,0.10);
+      --b2: rgba(255,255,255,0.16);
+      --acc: #FF5500;
+      --acc2: #FF8A00;
+      --txt: #EDE9E0;
+      --txt2: #9A9A9E;
+      --txt3: #5C5C62;
+      --grn: #22C55E;
+      --r: 16px;
+      --rsm: 10px;
+      --ease: 0.2s cubic-bezier(0.4,0,0.2,1);
     }
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:#0b0f15;
-      color:white;
-      overflow-x:hidden;
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--bg);
+      color: var(--txt);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
       background:
-      radial-gradient(circle at top left, rgba(0,198,255,0.16), transparent 28%),
-      radial-gradient(circle at bottom right, rgba(140,82,255,0.14), transparent 30%);
-      z-index:-1;
+        radial-gradient(ellipse 70% 40% at 60% -10%, rgba(255,85,0,0.10), transparent),
+        radial-gradient(ellipse 50% 40% at 0% 80%, rgba(255,140,0,0.06), transparent);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .container{
-      width:100%;
-      max-width:1200px;
-      margin:auto;
-      padding:40px 24px 80px;
+    /* ── NAV ───────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 28px;
+      height: 58px;
+      background: rgba(10,10,12,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--b0);
     }
 
-    .hero{
-      text-align:center;
-      padding:80px 0 40px;
+    .nav-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--acc);
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .creator-banner{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:20px;
-      padding:22px 28px;
-      border-radius:32px;
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      backdrop-filter:blur(12px);
-      max-width:820px;
-      margin:0 auto 42px;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar { display:none; }
+
+    .nav-link {
+      padding: 6px 13px;
+      border-radius: 100px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--txt2);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: var(--ease);
+    }
+    .nav-link:hover { background: var(--s3); color: var(--txt); }
+
+    .nav-cta {
+      flex-shrink: 0;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      background: var(--acc);
+      color: #fff;
+      text-decoration: none;
+      transition: var(--ease);
+    }
+    .nav-cta:hover { background: #ff6a1f; }
+
+    /* ── PAGE ──────────────────────────────── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
     }
 
-    .creator-avatar{
-      width:90px;
-      height:90px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid rgba(255,255,255,0.14);
-      box-shadow:0 10px 35px rgba(0,198,255,0.28);
+    /* ── HERO ──────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 40px;
+      align-items: center;
+      padding: 72px 0 64px;
     }
 
-    .creator-text{
-      text-align:left;
+    /* Creator chip — bigger avatar */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 8px 18px 8px 8px;
+      border-radius: 100px;
+      background: var(--s1);
+      border: 1px solid var(--b1);
+      margin-bottom: 28px;
+    }
+    .chip-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,85,0,0.35);
+      box-shadow: 0 0 0 3px rgba(255,85,0,0.10);
+      flex-shrink: 0;
+    }
+    .chip-info { display:flex; flex-direction:column; gap:2px; }
+    .chip-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      color: var(--txt);
+      text-transform: uppercase;
+    }
+    .chip-role {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--txt2);
+      letter-spacing: 0.2px;
     }
 
-    .creator-small{
-      display:block;
-      color:#93a4bc;
-      font-size:0.95rem;
-      margin-bottom:8px;
-      letter-spacing:0.5px;
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 5.5vw, 4.6rem);
+      line-height: 0.92;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .hero-title em { font-style: italic; color: var(--acc); }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--txt2);
+      line-height: 1.75;
+      margin-bottom: 32px;
+      max-width: 420px;
     }
 
-    .creator-text h3{
-      font-size:2rem;
-      line-height:1.1;
-      font-weight:800;
-      letter-spacing:-1.5px;
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn-o {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 13px 22px;
+      border-radius: var(--rsm);
+      font-weight: 700; font-size: 0.93rem;
+      background: var(--acc); color: #fff;
+      text-decoration: none; transition: var(--ease);
+    }
+    .btn-o:hover { background: #ff6a1f; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,85,0,0.28); }
+
+    .btn-g {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 13px 22px;
+      border-radius: var(--rsm);
+      font-weight: 700; font-size: 0.93rem;
+      background: transparent; color: var(--txt);
+      border: 1px solid var(--b1); text-decoration: none; transition: var(--ease);
+    }
+    .btn-g:hover { background: var(--s2); border-color: var(--b2); }
+
+    /* ── COUPON CARD ───────────────────────── */
+    .coupon-card {
+      position: relative;
+      background: var(--s1);
+      border: 1px solid var(--b0);
+      border-radius: 22px;
+      padding: 36px;
+      overflow: hidden;
+    }
+    .coupon-card::before {
+      content:'';
+      position:absolute; top:-50px; right:-50px;
+      width:200px; height:200px;
+      background: radial-gradient(circle, rgba(255,85,0,0.16), transparent 70%);
+      pointer-events:none;
     }
 
-    .hero p{
-      max-width:720px;
-      margin:auto;
-      color:#a8b1bf;
-      font-size:1.1rem;
-      line-height:1.8;
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px;
+      border-radius: 5px;
+      font-size: 0.71rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: rgba(255,85,0,0.14);
+      border: 1px solid rgba(255,85,0,0.28);
+      color: var(--acc);
+      margin-bottom: 18px;
     }
 
-    .personal-code{
-      margin-top:42px;
-      padding:34px;
-      border-radius:32px;
-      background:linear-gradient(135deg, rgba(0,198,255,0.18), rgba(140,82,255,0.18));
-      border:1px solid rgba(255,255,255,0.1);
-      backdrop-filter:blur(12px);
+    .coupon-amount {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--txt);
+      margin-bottom: 6px;
+    }
+    .coupon-sub {
+      font-size: 0.88rem;
+      color: var(--txt3);
+      margin-bottom: 26px;
     }
 
-    .personal-code small{
-      color:#dbe5f3;
-      font-size:0.9rem;
-      letter-spacing:1px;
-      text-transform:uppercase;
+    .code-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--s2);
+      border: 1.5px dashed rgba(255,255,255,0.12);
+      border-radius: var(--rsm);
+      padding: 15px 18px;
+      cursor: pointer;
+      user-select: none;
+      transition: var(--ease);
+    }
+    .code-pill:hover { border-color: var(--acc); border-style: solid; }
+    .code-pill-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      flex: 1;
+    }
+    .code-pill-ico { font-size: 0.95rem; opacity: 0.45; flex-shrink:0; }
+    .code-pill.copied { border-color: var(--grn); border-style: solid; }
+    .code-pill.copied .code-pill-val { color: var(--grn); }
+
+    .coupon-hint {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 0.79rem;
+      color: var(--txt3);
     }
 
-    .personal-code h2{
-      font-size:clamp(2rem,5vw,3.7rem);
-      margin:18px 0;
-      letter-spacing:3px;
+    /* ── SECTION ───────────────────────────── */
+    .section { padding: 60px 0 0; }
+
+    .sec-hdr {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--b0);
+      margin-bottom: 22px;
+    }
+    .sec-hdr h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.75rem;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+    .sec-badge {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--txt3);
+      background: var(--s1);
+      border: 1px solid var(--b0);
+      padding: 3px 9px;
+      border-radius: 5px;
+      white-space: nowrap;
     }
 
-    .copy-box{
-      display:flex;
-      justify-content:center;
-      margin-top:25px;
+    /* ── GRIDS ─────────────────────────────── */
+    .g3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .ga { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px; }
+
+    /* ── CARD ──────────────────────────────── */
+    .card {
+      background: var(--s1);
+      border: 1px solid var(--b0);
+      border-radius: 20px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      transition: var(--ease);
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--b1); box-shadow: 0 14px 40px rgba(0,0,0,0.4); }
+
+    .card-t {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
     }
 
-    .hero-code{
-      background:#0f1621;
-      border:1px solid rgba(255,255,255,0.08);
-      padding:20px 30px;
-      border-radius:22px;
-      font-size:1.25rem;
-      font-weight:800;
-      letter-spacing:3px;
-      cursor:pointer;
-      transition:0.25s ease;
-      user-select:none;
+    .deals { display:flex; flex-direction:column; flex:1; }
+
+    .deal {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--b0);
+    }
+    .deal:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .deal-d {
+      font-size: 0.88rem;
+      color: var(--txt2);
+      line-height: 1.4;
     }
 
-    .hero-code:hover{
-      transform:translateY(-3px);
-      box-shadow:0 15px 40px rgba(0,198,255,0.25);
+    .price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: var(--acc);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .referral-main{
-      margin-top:30px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:18px 34px;
-      border-radius:22px;
-      text-decoration:none;
-      color:white;
-      font-weight:700;
-      font-size:1rem;
-      background:linear-gradient(90deg,#00c6ff,#8c52ff);
-      transition:0.25s ease;
+    .code-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 6px 11px;
+      border-radius: 7px;
+      background: var(--s2);
+      border: 1px solid var(--b1);
+      color: var(--acc);
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+      transition: var(--ease);
+      flex-shrink: 0;
     }
+    .code-tag:hover { background: rgba(255,85,0,0.12); border-color: rgba(255,85,0,0.38); }
+    .code-tag.copied { background: rgba(34,197,94,0.10); border-color: rgba(34,197,94,0.38); color: var(--grn); }
 
-    .referral-main:hover{
-      transform:translateY(-3px);
-      box-shadow:0 12px 35px rgba(0,198,255,0.25);
+    .card-cta {
+      margin-top: 20px;
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; padding: 13px;
+      border-radius: 12px;
+      font-weight: 700; font-size: 0.88rem;
+      color: #fff; text-decoration: none;
+      background: rgba(255,85,0,0.10);
+      border: 1px solid rgba(255,85,0,0.22);
+      transition: var(--ease); letter-spacing: 0.4px;
     }
+    .card-cta:hover { background: var(--acc); border-color: var(--acc); transform: translateY(-1px); }
 
-    .section-title{
-      font-size:1.9rem;
-      margin:64px 0 24px;
-      font-weight:700;
-      letter-spacing:-1px;
-      color:white;
+    /* ── PRIME BANNER ──────────────────────── */
+    .prime {
+      position: relative;
+      background: var(--s1);
+      border: 1px solid rgba(255,85,0,0.2);
+      border-radius: 20px;
+      padding: 30px 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      overflow: hidden;
     }
-
-    .section-title span{
-      color:#7e8897;
-      font-size:1rem;
-      font-weight:500;
-      margin-left:10px;
+    .prime::before {
+      content:'';
+      position:absolute; inset:0;
+      background: linear-gradient(90deg, rgba(255,85,0,0.055), transparent 55%);
+      pointer-events:none;
     }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:24px;
+    .prime-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 2.6rem;
+      text-transform: uppercase;
+      line-height: 1;
+      margin: 10px 0 6px;
     }
-
-    .card{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:30px;
-      padding:30px;
-      backdrop-filter:blur(12px);
-      transition:0.25s ease;
+    .prime-sub { font-size: 0.9rem; color: var(--txt2); }
+    .prime-perks { display: flex; flex-direction: column; gap: 9px; min-width: 210px; }
+    .perk { display: flex; align-items: center; gap: 8px; font-size: 0.87rem; color: var(--txt2); }
+    .perk::before { content:'✓'; color: var(--acc); font-weight: 800; font-size: 0.78rem; flex-shrink:0; }
+    .prime-btn {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700; font-size: 0.93rem;
+      background: var(--acc); color: #fff;
+      text-decoration: none; transition: var(--ease);
+      white-space: nowrap;
     }
+    .prime-btn:hover { background: #ff6a1f; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,85,0,0.28); }
 
-    .card:hover{
-      transform:translateY(-5px);
-      border-color:rgba(255,255,255,0.14);
+    /* ── TOAST ─────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(70px);
+      background: var(--s2);
+      border: 1px solid rgba(34,197,94,0.3);
+      color: var(--grn);
+      padding: 11px 22px;
+      border-radius: 100px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      z-index: 999;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      pointer-events: none;
+      white-space: nowrap;
     }
+    .toast.show { transform: translateX(-50%) translateY(0); }
 
-    .card h3{
-      font-size:1.35rem;
-      margin-bottom:18px;
+    /* ── FOOTER ────────────────────────────── */
+    footer {
+      margin-top: 80px;
+      padding: 28px 0;
+      border-top: 1px solid var(--b0);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
-
-    .deal{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:14px;
-      padding:14px 0;
-      border-bottom:1px solid rgba(255,255,255,0.06);
+    .foot-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--txt3);
     }
+    .foot-brand span { color: var(--acc); }
+    .foot-legal { font-size: 0.78rem; color: var(--txt3); }
 
-    .deal:last-child{
-      border-bottom:none;
-      padding-bottom:0;
+    /* ── FADE-IN ────────────────────────────── */
+    @keyframes up { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+    .page > * { animation: up 0.5s ease both; }
+    .page > *:nth-child(1) { animation-delay:0.04s; }
+    .page > *:nth-child(2) { animation-delay:0.10s; }
+    .page > *:nth-child(3) { animation-delay:0.16s; }
+    .page > *:nth-child(4) { animation-delay:0.22s; }
+    .page > *:nth-child(5) { animation-delay:0.28s; }
+    .page > *:nth-child(6) { animation-delay:0.34s; }
+    .page > *:nth-child(7) { animation-delay:0.38s; }
+
+    /* ── RESPONSIVE ────────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns:1fr; gap:32px; }
+      .prime { flex-direction:column; align-items:flex-start; }
+      .prime-perks { min-width:auto; }
+      .prime-btn { width:100%; justify-content:center; }
+      .g3 { grid-template-columns:1fr 1fr; }
     }
-
-    .deal-info{
-      color:#d9e0ea;
-      line-height:1.5;
-      font-size:0.96rem;
+    @media (max-width: 600px) {
+      .nav-links { display:none; }
+      .hero-title { font-size:2.6rem; }
+      .g3 { grid-template-columns:1fr; }
+      .deal { flex-direction:column; align-items:flex-start; gap:8px; }
+      .code-tag { width:100%; text-align:center; }
+      footer { flex-direction:column; text-align:center; }
     }
-
-    .code{
-      background:linear-gradient(90deg,#00c6ff,#8c52ff);
-      padding:10px 14px;
-      border-radius:14px;
-      font-size:0.9rem;
-      font-weight:700;
-      white-space:nowrap;
-      cursor:pointer;
-      user-select:none;
-      transition:0.2s ease;
-    }
-
-    .code:hover{
-      transform:scale(1.05);
-      box-shadow:0 10px 25px rgba(0,198,255,0.25);
-    }
-
-    .btn{
-      margin-top:24px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      padding:17px;
-      border-radius:20px;
-      text-decoration:none;
-      color:white;
-      font-weight:700;
-      background:linear-gradient(90deg,#00c6ff,#8c52ff);
-      transition:0.25s ease;
-    }
-
-    .btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 12px 35px rgba(0,198,255,0.25);
-    }
-
-    footer{
-      text-align:center;
-      padding-top:80px;
-      color:#697383;
-      font-size:0.9rem;
-    }
-
-    @media(max-width:768px){
-
-      .creator-banner{
-        flex-direction:column;
-        text-align:center;
-        padding:28px;
-      }
-
-      .creator-text{
-        text-align:center;
-      }
-
-      .creator-text h3{
-        font-size:1.45rem;
-      }
-
-      .deal{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .code{
-        width:100%;
-        text-align:center;
-      }
-
-      .hero-code{
-        width:100%;
-        text-align:center;
-      }
-
-      .section-title{
-        line-height:1.5;
-      }
-
-      .section-title span{
-        display:block;
-        margin-left:0;
-        margin-top:6px;
-      }
-
-    }
-
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <nav class="nav">
+    <a href="#top" class="nav-brand">Ludwing × Anycubic</a>
+    <div class="nav-links">
+      <a href="#prime-sale" class="nav-link">Prime Sale</a>
+      <a href="#printers"   class="nav-link">Printers</a>
+      <a href="#bundle"     class="nav-link">Bundle 2×</a>
+      <a href="#sitewide"   class="nav-link">Sitewide</a>
+      <a href="#materials"  class="nav-link">Materials</a>
+    </div>
+    <a href="https://anycubic.it/?ref=naozzgja" target="_blank" class="nav-cta">Visit the Store →</a>
+  </nav>
 
+  <div class="page" id="top">
+
+    <!-- HERO -->
     <section class="hero">
 
-      <div class="creator-banner">
-
-        <img
-          src="https://i.postimg.cc/FFW3sjLV/Logo.png"
-          alt="Ludwing"
-          class="creator-avatar"
-        >
-
-        <div class="creator-text">
-
-          <span class="creator-small">
-            Official Anycubic Partner Deals
-          </span>
-
-          <h3>
-            Ludwing's Dedicated Promo Code & Anycubic Deals
-          </h3>
-
-        </div>
-
-      </div>
-
-      <p>
-        Discover the latest Anycubic Prime Sale discounts,
-        exclusive coupon codes, filament deals and printer offers.
-      </p>
-
-      <div class="personal-code">
-
-        <small>Exclusive Personal Coupon</small>
-
-        <h2>€15 OFF</h2>
-
-        <p>
-          Click the code below to instantly copy it.
-        </p>
-
-        <div class="copy-box">
-
-          <div class="hero-code" onclick="copyCoupon(this)">
-            YBTDSUWAFQ
+      <div>
+        <div class="chip">
+          <img src="https://i.postimg.cc/FFW3sjLV/Logo.png" alt="Ludwing" class="chip-avatar">
+          <div class="chip-info">
+            <span class="chip-name">Ludwing</span>
+            <span class="chip-role">Official Anycubic Partner</span>
           </div>
-
         </div>
 
+        <h1 class="hero-title">The Best<br><em>Discount Codes</em><br>&amp; Deals</h1>
+        <p class="hero-desc">Exclusive coupons, Prime Sale offers and updated deals on Anycubic 3D printers, filaments and accessories.</p>
+        <div class="hero-btns">
+          <a href="https://anycubic.it/pages/prime-sale?ref=naozzgja" target="_blank" class="btn-o">🛒 Shop Prime Sale</a>
+          <a href="#sitewide" class="btn-g">🏷️ All Coupons</a>
+        </div>
       </div>
 
-      <a class="referral-main" href="https://anycubic.it/?ref=naozzgja" target="_blank">
-        🛒 Visit Anycubic Store
-      </a>
+      <div class="coupon-card">
+        <div class="tag">💎 Exclusive Personal Coupon</div>
+        <div class="coupon-amount">€15 OFF</div>
+        <div class="coupon-sub">On any eligible order</div>
+        <div class="code-pill" onclick="copyHero(this,'YBTDSUWAFQ')">
+          <span class="code-pill-val">YBTDSUWAFQ</span>
+          <span class="code-pill-ico">📋</span>
+        </div>
+        <p class="coupon-hint">Click to copy the code</p>
+      </div>
 
     </section>
 
-
-
-    <h2 class="section-title">
-      🚀 Anycubic Prime Sale
-      <span>Valid: May 21 — June 22</span>
-    </h2>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h3>🔥 Up to €450 OFF</h3>
-
-        <div class="deal">
-          <div class="deal-info">
-            Massive discounts on printers, accessories,
-            filament and resin during the official Prime Sale.
-          </div>
-        </div>
-
-        <a class="btn" href="https://anycubic.it/pages/prime-sale?ref=naozzgja" target="_blank">
-          🛒 Shop Now
-        </a>
-
+    <!-- PRIME SALE -->
+    <section class="section" id="prime-sale">
+      <div class="sec-hdr">
+        <h2>🚀 Anycubic Prime Sale</h2>
+        <span class="sec-badge">May 21 — Jun 22, 2026</span>
       </div>
 
-
-      <div class="card">
-
-        <h3>💎 Insider Benefits</h3>
-
-        <div class="deal">
-          <div class="deal-info">
-            +180 days extended warranty
-          </div>
+      <div class="prime">
+        <div>
+          <div class="tag">Prime Sale</div>
+          <div class="prime-title">Up to €450 OFF</div>
+          <p class="prime-sub">On printers, accessories, filaments and resins</p>
         </div>
-
-        <div class="deal">
-          <div class="deal-info">
-            14-Day free trial & easy returns
-          </div>
+        <div class="prime-perks">
+          <div class="perk">+180 days extended warranty</div>
+          <div class="perk">14-day free trial &amp; easy returns</div>
+          <div class="perk">Exclusive coupons &amp; launch discounts</div>
+          <div class="perk">Spin &amp; Win rewards</div>
         </div>
+        <a href="https://anycubic.it/pages/prime-sale?ref=naozzgja" target="_blank" class="prime-btn">🛒 Shop Now →</a>
+      </div>
+    </section>
 
-        <div class="deal">
-          <div class="deal-info">
-            Exclusive coupons & launch discounts
-          </div>
-        </div>
-
-        <div class="deal">
-          <div class="deal-info">
-            Spin & Win rewards
-          </div>
-        </div>
-
-        <a class="btn" href="https://anycubic.it/pages/prime-sale?ref=naozzgja" target="_blank">
-          🛒 Shop Now
-        </a>
-
+    <!-- PRINTERS -->
+    <section class="section" id="printers">
+      <div class="sec-hdr">
+        <h2>🖨️ Featured Printers</h2>
+        <span class="sec-badge">Prime Sale Highlights</span>
       </div>
 
-    </div>
+      <div class="g3">
 
-
-
-    <h2 class="section-title">
-      🖨️ Featured Printer Deals
-      <span>Prime Sale Highlights</span>
-    </h2>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h3>Kobra X</h3>
-
-        <div class="deal">
-          <div class="deal-info">
-            Prime Sale Price → €279
+        <div class="card">
+          <div class="card-t">Kobra X</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d">Prime Sale Price</span>
+              <span class="price">€279</span>
+            </div>
+            <div class="deal">
+              <span class="deal-d">PayPal Special Price</span>
+              <div class="code-tag" onclick="copyTag(this,'KXPP')">KXPP</div>
+            </div>
           </div>
+          <a href="https://anycubic.it/products/kobra-x?ref=naozzgja" target="_blank" class="card-cta">🛒 Buy Now → €269</a>
         </div>
 
-        <div class="deal">
-          <div class="deal-info">
-            PayPal Special Price → €269
+        <div class="card">
+          <div class="card-t">Photon Mono M7 Max</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d">Prime Sale Price</span>
+              <span class="price">€599</span>
+            </div>
           </div>
-
-          <div class="code" onclick="copyCoupon(this)">
-            KXPP
-          </div>
+          <a href="https://anycubic.it/products/photon-mono-m7-max/?ref=naozzgja" target="_blank" class="card-cta">🛒 Shop Now</a>
         </div>
 
-        <a class="btn" href="https://anycubic.it/products/kobra-x?ref=naozzgja" target="_blank">
-          🛒 Shop Now
-        </a>
+        <div class="card">
+          <div class="card-t">Kobra S1 Max Combo</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d">Prime Sale Price</span>
+              <span class="price">€799</span>
+            </div>
+          </div>
+          <a href="https://anycubic.it/products/kobra-s1-max-combo?ref=naozzgja" target="_blank" class="card-cta">🛒 Shop Now</a>
+        </div>
 
       </div>
+    </section>
 
-
-
-      <div class="card">
-
-        <h3>Photon Mono M7 Max</h3>
-
-        <div class="deal">
-          <div class="deal-info">
-            Prime Sale Price → €599
-          </div>
-        </div>
-
-        <a class="btn" href="https://anycubic.it/products/photon-mono-m7-max/?ref=naozzgja" target="_blank">
-          🛒 Shop Now
-        </a>
-
+    <!-- BUNDLE 2× -->
+    <section class="section" id="bundle">
+      <div class="sec-hdr">
+        <h2>📦 Bundle 2× Deals</h2>
+        <span class="sec-badge">May 22 — Jun 30, 2026</span>
       </div>
 
-
-
-      <div class="card">
-
-        <h3>Kobra S1 Max Combo</h3>
-
-        <div class="deal">
-          <div class="deal-info">
-            Prime Sale Price → €799
+      <div class="ga">
+        <div class="card">
+          <div class="card-t">Buy 2 &amp; Save More</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d">€35 OFF × 2 Photon Mono M7 Max</span>
+              <div class="code-tag" onclick="copyTag(this,'PRIMEM7M')">PRIMEM7M</div>
+            </div>
+            <div class="deal">
+              <span class="deal-d">€35 OFF × 2 Kobra 3 Max Combo</span>
+              <div class="code-tag" onclick="copyTag(this,'PRIMEK3MC')">PRIMEK3MC</div>
+            </div>
+            <div class="deal">
+              <span class="deal-d">€40 OFF × 2 Kobra S1 Max Combo</span>
+              <div class="code-tag" onclick="copyTag(this,'PRIMES1MC')">PRIMES1MC</div>
+            </div>
+            <div class="deal">
+              <span class="deal-d">€35 OFF × 2 Photon P1</span>
+              <div class="code-tag" onclick="copyTag(this,'PRIMEP1')">PRIMEP1</div>
+            </div>
+            <div class="deal">
+              <span class="deal-d">€25 OFF × 2 Kobra X</span>
+              <div class="code-tag" onclick="copyTag(this,'PRIMEKX')">PRIMEKX</div>
+            </div>
           </div>
+          <a href="https://anycubic.it/collections/dual-unit-sale?ref=naozzgja" target="_blank" class="card-cta">🛒 View Bundle Deals</a>
         </div>
+      </div>
+    </section>
 
-        <a class="btn" href="https://anycubic.it/products/kobra-s1-max-combo?ref=naozzgja" target="_blank">
-          🛒 Shop Now
-        </a>
-
+    <!-- SITEWIDE -->
+    <section class="section" id="sitewide">
+      <div class="sec-hdr">
+        <h2>🏷️ Sitewide Coupons</h2>
+        <span class="sec-badge">May 21 — Jun 30, 2026</span>
       </div>
 
-    </div>
-
-
-
-    <h2 class="section-title">
-      📦 Dual Unit Discounts
-      <span>Valid: May 22 — June 30</span>
-    </h2>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h3>Buy 2 & Save More</h3>
-
-        <div class="deal">
-          <div class="deal-info">
-            €35 OFF 2× Photon Mono M7 Max
+      <div class="ga">
+        <div class="card">
+          <div class="card-t">Sitewide Discounts</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d">€15 OFF on orders over €150</span>
+              <div class="code-tag" onclick="copyTag(this,'PRINTER15')">PRINTER15</div>
+            </div>
+            <div class="deal">
+              <span class="deal-d">€10 OFF on orders over €100</span>
+              <div class="code-tag" onclick="copyTag(this,'PRINTER10')">PRINTER10</div>
+            </div>
+            <div class="deal">
+              <span class="deal-d">€5 OFF on orders over €50</span>
+              <div class="code-tag" onclick="copyTag(this,'PRINTER5')">PRINTER5</div>
+            </div>
+            <div class="deal">
+              <span class="deal-d">€3 OFF on orders over €30</span>
+              <div class="code-tag" onclick="copyTag(this,'PRINTER3')">PRINTER3</div>
+            </div>
           </div>
-
-          <div class="code" onclick="copyCoupon(this)">
-            PRIMEM7M
-          </div>
+          <a href="https://anycubic.it/pages/prime-sale?ref=naozzgja" target="_blank" class="card-cta">🛒 Shop Now</a>
         </div>
+      </div>
+    </section>
 
-        <div class="deal">
-          <div class="deal-info">
-            €35 OFF 2× Kobra 3 Max Combo
-          </div>
-
-          <div class="code" onclick="copyCoupon(this)">
-            PRIMEK3MC
-          </div>
-        </div>
-
-        <div class="deal">
-          <div class="deal-info">
-            €40 OFF 2× Kobra S1 Max Combo
-          </div>
-
-          <div class="code" onclick="copyCoupon(this)">
-            PRIMES1MC
-          </div>
-        </div>
-
-        <div class="deal">
-          <div class="deal-info">
-            €35 OFF 2× Photon P1
-          </div>
-
-          <div class="code" onclick="copyCoupon(this)">
-            PRIMEP1
-          </div>
-        </div>
-
-        <div class="deal">
-          <div class="deal-info">
-            €25 OFF 2× Kobra X
-          </div>
-
-          <div class="code" onclick="copyCoupon(this)">
-            PRIMEKX
-          </div>
-        </div>
-
-        <a class="btn" href="https://anycubic.it/collections/dual-unit-sale?ref=naozzgja" target="_blank">
-          🛒 Shop Now
-        </a>
-
+    <!-- MATERIALS -->
+    <section class="section" id="materials">
+      <div class="sec-hdr">
+        <h2>🎁 Materials &amp; Accessories</h2>
+        <span class="sec-badge">May 21 — Jun 22, 2026</span>
       </div>
 
-    </div>
+      <div class="g3">
 
-
-
-    <h2 class="section-title">
-      🏷️ Sitewide Coupon Codes
-      <span>Valid: May 21 — June 30</span>
-    </h2>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h3>Sitewide Discounts</h3>
-
-        <div class="deal">
-          <div class="deal-info">
-            €15 OFF orders over €150
+        <div class="card">
+          <div class="card-t">Filament Mystery Box</div>
+          <div class="deals">
+            <div class="deal"><span class="deal-d">3 kg</span><span class="price">€29.99</span></div>
+            <div class="deal"><span class="deal-d">5 kg</span><span class="price">€45.99</span></div>
+            <div class="deal"><span class="deal-d">10 kg</span><span class="price">€91.99</span></div>
           </div>
-
-          <div class="code" onclick="copyCoupon(this)">
-            PRINTER15
-          </div>
+          <a href="https://anycubic.it/products/scatola-misteriosa-di-filamenti-pla-e-resina-per-stampante-3d/?ref=naozzgja" target="_blank" class="card-cta">🛒 Shop Now</a>
         </div>
 
-        <div class="deal">
-          <div class="deal-info">
-            €10 OFF orders over €100
+        <div class="card">
+          <div class="card-t">Filament &amp; Resin</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d">Materials starting from</span>
+              <span class="price">€8.55/kg</span>
+            </div>
           </div>
-
-          <div class="code" onclick="copyCoupon(this)">
-            PRINTER10
-          </div>
+          <a href="https://anycubic.it/collections/vendita-materiali-per-stampa-3d/?ref=naozzgja" target="_blank" class="card-cta">🛒 Shop Now</a>
         </div>
 
-        <div class="deal">
-          <div class="deal-info">
-            €5 OFF orders over €50
+        <div class="card">
+          <div class="card-t">Accessories</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d">All accessories</span>
+              <span class="price">−15%</span>
+            </div>
           </div>
-
-          <div class="code" onclick="copyCoupon(this)">
-            PRINTER5
-          </div>
+          <a href="https://anycubic.it/collections/parti-accessori-per-stampanti-3d?ref=naozzgja" target="_blank" class="card-cta">🛒 Shop Now</a>
         </div>
-
-        <div class="deal">
-          <div class="deal-info">
-            €3 OFF orders over €30
-          </div>
-
-          <div class="code" onclick="copyCoupon(this)">
-            PRINTER3
-          </div>
-        </div>
-
-        <a class="btn" href="https://anycubic.it/pages/prime-sale?ref=naozzgja" target="_blank">
-          🛒 Shop Now
-        </a>
 
       </div>
-
-    </div>
-
-
-
-    <h2 class="section-title">
-      🎁 Materials & Accessories
-      <span>Valid: May 21 — June 22</span>
-    </h2>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <h3>Mystery Box Deals</h3>
-
-        <div class="deal">
-          <div class="deal-info">
-            3kg → €29.99
-          </div>
-        </div>
-
-        <div class="deal">
-          <div class="deal-info">
-            5kg → €45.99
-          </div>
-        </div>
-
-        <div class="deal">
-          <div class="deal-info">
-            10kg → €91.99
-          </div>
-        </div>
-
-        <a class="btn" href="https://anycubic.it/products/scatola-misteriosa-di-filamenti-pla-e-resina-per-stampante-3d/?ref=naozzgja" target="_blank">
-          🛒 Shop Now
-        </a>
-
-      </div>
-
-
-
-      <div class="card">
-
-        <h3>Filament & Resin Sale</h3>
-
-        <div class="deal">
-          <div class="deal-info">
-            Materials starting from €8.55/kg
-          </div>
-        </div>
-
-        <a class="btn" href="https://anycubic.it/collections/vendita-materiali-per-stampa-3d/?ref=naozzgja" target="_blank">
-          🛒 Shop Now
-        </a>
-
-      </div>
-
-
-
-      <div class="card">
-
-        <h3>Accessories Sale</h3>
-
-        <div class="deal">
-          <div class="deal-info">
-            All accessories → 15% OFF
-          </div>
-        </div>
-
-        <a class="btn" href="https://anycubic.it/collections/parti-accessori-per-stampanti-3d?ref=naozzgja" target="_blank">
-          🛒 Shop Now
-        </a>
-
-      </div>
-
-    </div>
-
-
+    </section>
 
     <footer>
-      © 2026 • Ludwing's Anycubic Deals
+      <div class="foot-brand">Ludwing × <span>Anycubic</span></div>
+      <div class="foot-legal">© 2026 — Ludwing's Anycubic Deals</div>
     </footer>
 
   </div>
 
+  <div class="toast" id="toast">✓ Code copied!</div>
+
   <script>
+    var toastT;
 
-    function copyCoupon(element) {
-
-      const text = element.innerText.trim();
-
-      navigator.clipboard.writeText(text);
-
-      const original = text;
-
-      element.innerText = "✅ COPIED";
-
-      setTimeout(() => {
-        element.innerText = original;
-      }, 1500);
-
+    function showToast(code) {
+      var t = document.getElementById('toast');
+      clearTimeout(toastT);
+      t.textContent = '✓ "' + code + '" copied!';
+      t.classList.add('show');
+      toastT = setTimeout(function(){ t.classList.remove('show'); }, 2200);
     }
 
+    function copyHero(el, code) {
+      navigator.clipboard.writeText(code).catch(function(){});
+      var val = el.querySelector('.code-pill-val');
+      var ico = el.querySelector('.code-pill-ico');
+      el.classList.add('copied');
+      val.textContent = '✓ Copied!';
+      ico.textContent = '';
+      setTimeout(function(){
+        el.classList.remove('copied');
+        val.textContent = code;
+        ico.textContent = '📋';
+      }, 1600);
+      showToast(code);
+    }
+
+    function copyTag(el, code) {
+      navigator.clipboard.writeText(code).catch(function(){});
+      el.classList.add('copied');
+      el.textContent = '✓ Copied!';
+      setTimeout(function(){
+        el.classList.remove('copied');
+        el.textContent = code;
+      }, 1600);
+      showToast(code);
+    }
   </script>
 
 </body>
