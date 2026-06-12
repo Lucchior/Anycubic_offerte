@@ -489,7 +489,12 @@
       .prime { padding:24px; }
       footer { flex-direction:column; text-align:center; }
     }
-  </style>
+  
+      .new-deal { border-color: rgba(255,106,0,.22) !important; }
+      .new-deal .tag { background: rgba(255,106,0,.15); border-color: rgba(255,106,0,.35); color: var(--accent2); margin-bottom: 10px; display: inline-flex; }
+      .card-t { margin-top: 6px; }
+
+      </style>
 
 <style>
 :root{--bg:#07090d;--bg2:#0b1017;--card:#0f1621;--card2:#121b28;--line:rgba(255,255,255,.08);--line2:rgba(255,122,24,.18);--txt:#f5f7fb;--muted:#aeb8c6;--muted2:#7f8ca0;--accent:#ff6a00;--accent2:#ff9b3d;--good:#2dd4bf;--shadow:0 22px 70px rgba(0,0,0,.35);--shadow2:0 10px 30px rgba(255,106,0,.18);--r:24px;--r2:16px}
@@ -547,7 +552,7 @@ footer{padding:36px 0 20px;margin-top:96px;border-top:1px solid rgba(255,255,255
 <body>
 
   <!-- Announcement bar -->
-  <div class="announce" data-i18n="announce">🔥 Prime Sale Active — Save up to €450 &nbsp;·&nbsp; Ends June 22</div>
+  <div class="announce" data-i18n="announce">🔥 Prime Sale Active — Up to €450 OFF &nbsp;·&nbsp; Jun 12–22, 2026</div>
 
   <nav class="nav">
     <a href="#top" class="nav-brand">Ludwing × Anycubic</a>
@@ -672,6 +677,88 @@ footer{padding:36px 0 20px;margin-top:96px;border-top:1px solid rgba(255,255,255
           <a href="https://anycubic.it/products/kobra-s1-max-combo?ref=naozzgja" target="_blank" class="card-cta" data-i18n="shop_now">🛒 Shop Now</a>
         </div>
 
+        <!-- NEW: Kobra S1 Combo -->
+        <div class="card new-deal">
+          <div class="card-img" style="background:radial-gradient(ellipse 80% 80% at 50% 55%,rgba(255,106,0,.10),rgba(10,10,14,.9))">
+            <img src="https://i.postimg.cc/qR8gL9m8/Kobra-S1Max-Combo.webp" alt="Kobra S1 Combo" loading="lazy">
+          </div>
+          <div class="tag" data-i18n="tag_pricedrop">💥 Price Drop</div>
+          <div class="card-t">Kobra S1 Combo</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d" data-i18n="prime_price">Prime Sale Price</span>
+              <span class="price">€399</span>
+            </div>
+            <div class="deal">
+              <span class="deal-d" data-i18n="deal_until">Until Jun 22, 2026</span>
+            </div>
+          </div>
+          <a href="https://anycubic.it/products/kobra-s1-combo/?ref=naozzgja" target="_blank" class="card-cta" data-i18n="shop_now">🛒 Shop Now</a>
+        </div>
+
+        <!-- NEW: Kobra 4 / Kobra 4 Combo -->
+        <div class="card new-deal">
+          <div class="card-img" style="background:radial-gradient(ellipse 80% 80% at 50% 55%,rgba(255,106,0,.10),rgba(10,10,14,.9))">
+            <img src="https://i.postimg.cc/DwyszyxB/Kobra-X.webp" alt="Kobra 4 Combo" loading="lazy">
+          </div>
+          <div class="tag" data-i18n="tag_extrasave">🏷️ Extra Save</div>
+          <div class="card-t">Kobra 4 / Kobra 4 Combo</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d">Kobra 4</span>
+              <span class="price">€249</span>
+            </div>
+            <div class="deal">
+              <span class="deal-d">Kobra 4 Combo</span>
+              <span class="price">€349</span>
+            </div>
+            <div class="deal">
+              <span class="deal-d" data-i18n="deal_code">Codice extra €30</span>
+              <div class="code-tag" onclick="copyTag(this,'ACK4')">ACK4</div>
+            </div>
+          </div>
+          <a href="https://anycubic.it/products/kobra-4-combo-3d-printer/?ref=naozzgja" target="_blank" class="card-cta" data-i18n="shop_now">🛒 Shop Now</a>
+        </div>
+
+        <!-- NEW: Photon P1 -->
+        <div class="card new-deal">
+          <div class="card-img" style="background:radial-gradient(ellipse 80% 80% at 50% 55%,rgba(255,106,0,.10),rgba(10,10,14,.9))">
+            <img src="https://i.postimg.cc/kgX85XTw/Photon.webp" alt="Photon P1" loading="lazy">
+          </div>
+          <div class="tag" data-i18n="tag_extrasave">🏷️ Extra Save</div>
+          <div class="card-t">Photon P1</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d" data-i18n="prime_price">Prime Sale Price</span>
+              <span class="price">€519</span>
+            </div>
+            <div class="deal">
+              <span class="deal-d" data-i18n="deal_code">Codice extra €30</span>
+              <div class="code-tag" onclick="copyTag(this,'ACP1')">ACP1</div>
+            </div>
+          </div>
+          <a href="https://anycubic.it/products/photon-p1-resin-3d-printer/?ref=naozzgja" target="_blank" class="card-cta" data-i18n="shop_now">🛒 Shop Now</a>
+        </div>
+
+        <!-- NEW: Photon Mono 4 Ultra -->
+        <div class="card new-deal">
+          <div class="card-img" style="background:radial-gradient(ellipse 80% 80% at 50% 55%,rgba(255,106,0,.10),rgba(10,10,14,.9))">
+            <img src="https://i.postimg.cc/kgX85XTw/Photon.webp" alt="Photon Mono 4 Ultra" loading="lazy">
+          </div>
+          <div class="tag" data-i18n="tag_pricedrop">💥 Price Drop</div>
+          <div class="card-t">Photon Mono 4 Ultra</div>
+          <div class="deals">
+            <div class="deal">
+              <span class="deal-d" data-i18n="prime_price">Prime Sale Price</span>
+              <span class="price">€229</span>
+            </div>
+            <div class="deal">
+              <span class="deal-d" data-i18n="deal_until">Until Jun 22, 2026</span>
+            </div>
+          </div>
+          <a href="https://anycubic.it/products/photon-mono-4-ultra/?ref=naozzgja" target="_blank" class="card-cta" data-i18n="shop_now">🛒 Shop Now</a>
+        </div>
+
       </div>
     </section>
 
@@ -771,7 +858,7 @@ footer{padding:36px 0 20px;margin-top:96px;border-top:1px solid rgba(255,255,255
   <script>
     var T = {
       en: {
-        announce:       '🔥 Prime Sale Active — Save up to €450 &nbsp;·&nbsp; Ends June 22',
+        announce:       '🔥 Prime Sale Active — Up to €450 OFF &nbsp;·&nbsp; Jun 12–22, 2026',
         nav_store:      'Visit the Store &rarr;',
         nav_printers:   'Printers',
         nav_materials:  'Materials',
@@ -783,7 +870,7 @@ footer{padding:36px 0 20px;margin-top:96px;border-top:1px solid rgba(255,255,255
         coupon_tag:     '💎 Exclusive Personal Coupon',
         coupon_sub:     'On any eligible order',
         coupon_hint:    'Click to copy the code',
-        ps_date:        'May 21 &mdash; Jun 22, 2026',
+        ps_date:        'Jun 12 &mdash; Jun 22, 2026',
         ps_title:       'Up to €450 OFF',
         ps_sub:         'On printers, accessories, filaments and resins',
         ps_perk1:       '+180 days extended warranty',
@@ -792,7 +879,7 @@ footer{padding:36px 0 20px;margin-top:96px;border-top:1px solid rgba(255,255,255
         ps_perk4:       'Spin &amp; Win rewards',
         ps_btn:         '🛒 Shop Now &rarr;',
         printers_h2:    '🖨️ Featured Printers',
-        printers_badge: 'Prime Sale Highlights',
+        printers_badge: 'Jun 12–22, 2026 · Prime Sale',
         prime_price:    'Prime Sale Price',
         paypal_price:   'PayPal Special Price',
         kobra_cta:      '🛒 Buy Now &rarr; €269',
@@ -810,19 +897,23 @@ footer{padding:36px 0 20px;margin-top:96px;border-top:1px solid rgba(255,255,255
         sw1:'€15 OFF on orders over €150', sw2:'€10 OFF on orders over €100',
         sw3:'€5 OFF on orders over €50',   sw4:'€3 OFF on orders over €30',
         mat_h2:         '🎁 Materials &amp; Accessories',
-        mat_badge:      'May 21 &mdash; Jun 22, 2026',
+        mat_badge:      'Jun 12 &mdash; Jun 22, 2026',
         mat1_title:     'Filament Mystery Box',
         mat2_title:     'Filament &amp; Resin',
         mat2_from:      'Materials starting from',
         mat3_title:     'Accessories',
         mat3_all:       'All accessories',
+        tag_pricedrop:  '💥 Price Drop',
+        tag_extrasave:  '🏷️ Save Extra',
+        deal_code:      'Code for extra €30 off',
+        deal_until:     'Until Jun 22, 2026',
         lang_btn:       '🇮🇹 IT',
         copied:         '✓ Copied!',
         toast_pre:      '✓ "',
         toast_suf:      '" copied!'
       },
       it: {
-        announce:       '🔥 Prime Sale Attiva — Risparmia fino a €450 &nbsp;·&nbsp; Fino al 22 Giugno',
+        announce:       '🔥 Prime Sale Attiva — Fino a €450 OFF &nbsp;·&nbsp; 12–22 Giu 2026',
         nav_store:      'Visita lo Store &rarr;',
         nav_printers:   'Stampanti',
         nav_materials:  'Materiali',
@@ -834,7 +925,7 @@ footer{padding:36px 0 20px;margin-top:96px;border-top:1px solid rgba(255,255,255
         coupon_tag:     '💎 Coupon Personale Esclusivo',
         coupon_sub:     'Su qualsiasi ordine idoneo',
         coupon_hint:    'Clicca per copiare il codice',
-        ps_date:        '21 Mag &mdash; 22 Giu 2026',
+        ps_date:        '12 Giu &mdash; 22 Giu 2026',
         ps_title:       'Fino a €450 OFF',
         ps_sub:         'Su stampanti, accessori, filamenti e resine',
         ps_perk1:       '+180 giorni di garanzia estesa',
@@ -843,7 +934,7 @@ footer{padding:36px 0 20px;margin-top:96px;border-top:1px solid rgba(255,255,255
         ps_perk4:       'Premi Spin &amp; Win',
         ps_btn:         '🛒 Acquista Ora &rarr;',
         printers_h2:    '🖨️ Stampanti in Evidenza',
-        printers_badge: 'Highlights Prime Sale',
+        printers_badge: '12–22 Giu 2026 · Prime Sale',
         prime_price:    'Prezzo Prime Sale',
         paypal_price:   'Prezzo speciale PayPal',
         kobra_cta:      '🛒 Acquista &rarr; €269',
@@ -861,12 +952,16 @@ footer{padding:36px 0 20px;margin-top:96px;border-top:1px solid rgba(255,255,255
         sw1:'€15 OFF su ordini sopra €150', sw2:'€10 OFF su ordini sopra €100',
         sw3:'€5 OFF su ordini sopra €50',   sw4:'€3 OFF su ordini sopra €30',
         mat_h2:         '🎁 Materiali &amp; Accessori',
-        mat_badge:      '21 Mag &mdash; 22 Giu 2026',
+        mat_badge:      '12 Giu &mdash; 22 Giu 2026',
         mat1_title:     'Mystery Box Filamenti',
         mat2_title:     'Filamento &amp; Resina',
         mat2_from:      'A partire da',
         mat3_title:     'Accessori',
         mat3_all:       'Tutti gli accessori',
+        tag_pricedrop:  '💥 Price Drop',
+        tag_extrasave:  '🏷️ Risparmio Extra',
+        deal_code:      'Codice per €30 in più',
+        deal_until:     'Fino al 22 Giu 2026',
         lang_btn:       '🇬🇧 EN',
         copied:         '✓ Copiato!',
         toast_pre:      '✓ "',
